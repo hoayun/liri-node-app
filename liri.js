@@ -13,9 +13,14 @@ var moment = require('moment');
 
 
 
-
-
-var action = process.argv[2];
+var userarr = process.argv;
+var userinput = userarr[3];
+var action = userarr[2];
+for (i = 4; i < userarr.length; i++) {
+    userinput += "+" + userarr[i];
+    console.log(userinput);
+};
+console.log(userinput);
 
 function randomizer(){
 switch(action){
@@ -39,19 +44,9 @@ case "do-what-it-says":
 randomizer();
 function movie() {
 
-    var value = process.argv;
-
-    // Create an empty variable for holding the movie name
-    var movieName = "";
-    
-    // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
-    for (i = 3; i < value.length; i++) {
-        movieName += value[i] + '+';
-    };
-    
+  
     // Then run a request with axios to the OMDB API with the movie specified
-    var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+    var queryUrl = "http://www.omdbapi.com/?t=" + userinput + "&y=&plot=short&apikey=trilogy";
     
     // This line is just to help us debug against the actual URL.
     console.log(queryUrl);
@@ -65,36 +60,18 @@ function movie() {
         console.log(response.data.Country);
         console.log(response.data.Language);
         console.log(response.data.Plot);
-        console.log(response.data.Plot);
+        
 
       }
     );
 }
 
 
-
-
-
-
 function concert() {
 
-    var value = process.argv;
-
-    // Create an empty variable for holding the movie name
-    var artist = "";
-    
-    // Loop through all the words in the node argument
-    // And do a little for-loop magic to handle the inclusion of "+"s
-    for (let i = 3; i < value.length; i++) {
-        if (i > 3 && i <value.length) {
-            artist = artist + "+" + value[i];
-    } else {
-            artist += value[i];
-        }
-    }
     
     // Then run a request with axios to the OMDB API with the movie specified
-    var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+    var queryUrl = "https://rest.bandsintown.com/artists/" + userinput + "/events?app_id=codingbootcamp";
 
     // This line is just to help us debug against the actual URL.
     console.log(queryUrl);
@@ -117,19 +94,13 @@ function concert() {
 }
 
 function spotify(){
-    var toSearch = process.argv;
+    
     var Spotify = require('node-spotify-api');
     var spotify = new Spotify(keys.spotify);
-    var song = "";
-    for (let i = 3; i < toSearch.length; i++) {
-        if (i > 3 && i <toSearch.length) {
-            song = song + "+" + toSearch[i];
-    } else {
-            song += toSearch[i];
-        }
-    }
+   
+   
     spotify
-        .search({ type: 'track', query: song,limit:1 })
+        .search({ type: 'track', query: userinput,limit:1 })
         .then(function(response) {
             console.log("Artists: " + response.tracks.items[0].album.artists[0].name);
             console.log("Song Name: " + response.tracks.items[0].name);
@@ -151,12 +122,12 @@ function says() {
         var dataArr2 = dataArr[1].split(" ");
         
         console.log(dataArr2);
-        userRequest = dataArr[0];
-        action = dataArr2[0]
+        action = dataArr[0];
+        userinput = dataArr2[0]
         for (i = 1; i < dataArr2.length; i++) {
-            action += "+" + dataArr2[i];
+            userinput += "+" + dataArr2[i];
         }
-        console.log(userRequest);
+        console.log(userinput);
         console.log(action);
         randomizer();
         })
