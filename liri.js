@@ -16,6 +16,8 @@ var moment = require('moment');
 
 
 var action = process.argv[2];
+
+function randomizer(){
 switch(action){
 
 case "concert-this":
@@ -31,10 +33,10 @@ case "movie-this":
  break;
 
 case "do-what-it-says":
-     dowhat();
+     says();
  break;
-}
-
+}}
+randomizer();
 function movie() {
 
     var value = process.argv;
@@ -138,7 +140,28 @@ function spotify(){
             console.log(err);
         });
 };
-
+function says() {
+    console.log("yes");
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if (error) {
+            console.log(error);
+          }
+        var dataArr = data.split(",");
+        console.log(dataArr);
+        var dataArr2 = dataArr[1].split(" ");
+        
+        console.log(dataArr2);
+        userRequest = dataArr[0];
+        action = dataArr2[0]
+        for (i = 1; i < dataArr2.length; i++) {
+            action += "+" + dataArr2[i];
+        }
+        console.log(userRequest);
+        console.log(action);
+        randomizer();
+        })
+        
+}
     
     
     
