@@ -7,8 +7,8 @@
 # Concert-this Example.
 ![concert](https://user-images.githubusercontent.com/45009760/54945734-e31c5f00-4f0c-11e9-9b7a-3fe637ee997b.gif)
 # Movie-this Example.
-![movie](\images\movie.gif)
+![movie](https://user-images.githubusercontent.com/45009760/54945887-41494200-4f0d-11e9-975c-6be3d8e66137.gif)
 # Spotify-this-song Example.
-![concert](\images\spotifythissong.gif)
+![spotifythissong](https://user-images.githubusercontent.com/45009760/54945857-2f679f00-4f0d-11e9-845a-0394bf3750ea.gif)
 # Do-what-it-says Example.
-![concert](\images\dowhat.gif)
+![dowhat](https://user-images.githubusercontent.com/45009760/54945905-4dcd9a80-4f0d-11e9-9c05-6a2cb949552b.gif)
