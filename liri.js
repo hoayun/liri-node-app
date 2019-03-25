@@ -20,7 +20,7 @@ for (i = 4; i < userarr.length; i++) {
     userinput += "+" + userarr[i];
     console.log(userinput);
 };
-console.log(userinput);
+
 
 function randomizer(){
 switch(action){
@@ -129,7 +129,7 @@ function says() {
         }
         console.log(userinput);
         console.log(action);
-        randomizer();
+        randomizer(); 
         })
         
 }
